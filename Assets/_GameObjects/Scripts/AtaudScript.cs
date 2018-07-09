@@ -19,8 +19,10 @@ public class AtaudScript : MonoBehaviour {
             {
                 moving = true;
             }
-        } else if (transform.position.y< ySuperior)
+        }
+        else if (transform.localPosition.y< ySuperior)
         {
+
             transform.Translate(Vector3.up * Time.deltaTime * 0.1f);
         }
     }

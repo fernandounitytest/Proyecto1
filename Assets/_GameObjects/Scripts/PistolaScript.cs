@@ -9,6 +9,7 @@ public class PistolaScript : MonoBehaviour {
 
     [SerializeField] AudioSource audioRecarga;
     [SerializeField] AudioSource audioDisparo;
+    [SerializeField] AudioSource audioRecargaFallida;
 
     [SerializeField] float fuerzaDisparo = 20;
     [SerializeField] float tiempoEntreDisparos = 1f;
@@ -24,8 +25,17 @@ public class PistolaScript : MonoBehaviour {
     private bool gatilloApretado;
 
     float tiempoUltimoDisparo;
-    
-	void Start () {
+
+    public int GetMunicionActualCargador()
+    {
+        return this.municionActualCargador;
+    }
+    public int GetMunicionActualInventario()
+    {
+        return this.municionActualInventario;
+    }
+
+    void Start () {
         municionActualCargador = municionMaximaCargador;
         municionActualInventario = Mathf.Min(municionActualInventario, municionMaximaInventario);
 	}
@@ -34,8 +44,13 @@ public class PistolaScript : MonoBehaviour {
     {
         float tiempoActual = Time.time;
         float tiempoDesdeUltimoDisparo = tiempoActual - tiempoUltimoDisparo;
-        
-        if (tiempoDesdeUltimoDisparo > tiempoEntreDisparos && municionActualCargador > 0)
+
+        bool puedoDisparar = true;
+        puedoDisparar &= tiempoDesdeUltimoDisparo > tiempoEntreDisparos;
+        puedoDisparar &= municionActualCargador > 0;
+        puedoDisparar &= !estoyRecargando;
+
+        if (puedoDisparar)
         {
             DispararProyectil();
         }
@@ -60,7 +75,8 @@ public class PistolaScript : MonoBehaviour {
         }
         else if (!tengoBalas)
         {
-            //TODO: Reproducir sonido de que no tengo munición
+            Debug.Log("NO BALAS");
+            audioRecargaFallida.Play();
         }
     }
 

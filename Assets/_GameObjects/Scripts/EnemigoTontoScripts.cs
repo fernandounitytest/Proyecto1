@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class EnemigoTontoScripts : MonoBehaviour {
     [SerializeField] float velocidadMovimiento = 5;
-    CharacterController miCC;
     [SerializeField] GameObject prefabParticulasMuerte;
+    [SerializeField] float distanciaAtaque = 5;
+    [SerializeField] int danyoAtaque = 5;
+    [SerializeField] GameObject prefabParticulasExplosion;
+
+
+    CharacterController miCC;
+
+    JugadorScript jugador;
 
     private void Start()
     {
@@ -19,7 +26,31 @@ public class EnemigoTontoScripts : MonoBehaviour {
 
     private void Update () {
         miCC.SimpleMove(miCC.transform.forward * velocidadMovimiento);
+        IntentarAtacarAlJugador();
 	}
+
+    private void IntentarAtacarAlJugador()
+    {
+        JugadorScript jugador = GameManager.jugador;
+
+        float distancia = Vector3.Distance(this.transform.position, jugador.transform.position);
+        if (distancia < distanciaAtaque)
+        {
+            AtaqueSuicida(jugador);
+        }
+    }
+
+    private void AtaqueSuicida(JugadorScript jugador)
+    {
+        //ATACAR
+        jugador.RecibirDanyo(danyoAtaque);
+        //Autodestrucción
+        Instantiate(
+            prefabParticulasExplosion,
+            position: this.transform.position,
+            rotation: Quaternion.identity);
+        Destroy(this.gameObject);
+    }
 
     public void RecibirDanyo(int danyo)
     {
@@ -39,4 +70,6 @@ public class EnemigoTontoScripts : MonoBehaviour {
         this.transform.Rotate(rotacionAAplicar);
     }
 
+
+    
 }
