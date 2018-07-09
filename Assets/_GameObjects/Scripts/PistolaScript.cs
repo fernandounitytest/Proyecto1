@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PistolaScript : MonoBehaviour {
-    
+
+    #region Atributos
+
     [SerializeField] Rigidbody prefabProyectil;
     [SerializeField] Transform puntoDisparo;//El punto de origen del disparo
 
@@ -26,6 +28,8 @@ public class PistolaScript : MonoBehaviour {
 
     float tiempoUltimoDisparo;
 
+    #endregion Atributos
+    
     public int GetMunicionActualCargador()
     {
         return this.municionActualCargador;
@@ -53,6 +57,9 @@ public class PistolaScript : MonoBehaviour {
         if (puedoDisparar)
         {
             DispararProyectil();
+        } else if (municionActualCargador == 0)
+        {
+            audioRecargaFallida.Play();
         }
     }
 
