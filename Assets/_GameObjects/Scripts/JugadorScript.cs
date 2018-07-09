@@ -6,13 +6,14 @@ using UnityEngine;
 
 public class JugadorScript : MonoBehaviour {
     [SerializeField] int vidaMaxima = 100;
-    private PistolaScript pistolaScript;
+    private ArmaScript[] armas;
+    private ArmaScript armaEquipada;
     private int vidaActual;
     private bool estoyMuerto;
 
-    public PistolaScript GetPistolaScript()
+    public ArmaScript GetArmaScript()
     {
-        return this.pistolaScript;
+        return this.armaEquipada;
     }
 
     public int GetVidaActual()
@@ -34,7 +35,8 @@ public class JugadorScript : MonoBehaviour {
     {
         GameManager.jugador = this;
         this.vidaActual = vidaMaxima;
-        pistolaScript = GetComponentInChildren<PistolaScript>();
+        armas = GetComponentsInChildren<ArmaScript>();
+        EquiparArma(0);
     }
 
     void Start () {
@@ -44,15 +46,22 @@ public class JugadorScript : MonoBehaviour {
 	void Update () {
         if (Input.GetButtonDown("Fire1"))
         {
-            pistolaScript.ApretarGatillo();
+            armaEquipada.ApretarGatillo();
         }
         if (Input.GetButtonUp("Fire1"))
         {
-            pistolaScript.SoltarGatillo();
+            armaEquipada.SoltarGatillo();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            pistolaScript.Recargar();
+            armaEquipada.Recargar();
+        }
+        for (int teclaArma = 1; teclaArma <= armas.Length; teclaArma++)
+        {
+            if(Input.GetKeyDown(teclaArma.ToString()))
+            {
+                EquiparArma(teclaArma - 1);
+            }
         }
 	}
 
@@ -70,5 +79,15 @@ public class JugadorScript : MonoBehaviour {
         this.enabled = false;
         GetComponent<CharacterController>().enabled = false;
         GetComponent<FirstPersonController>().enabled = false;
+    }
+
+    private void EquiparArma(int id)
+    {
+        for(int i=0; i<armas.Length; i++)
+        {
+            armas[i].gameObject.SetActive(false);
+        }
+        armaEquipada = armas[id];
+        armaEquipada.gameObject.SetActive(true);
     }
 }

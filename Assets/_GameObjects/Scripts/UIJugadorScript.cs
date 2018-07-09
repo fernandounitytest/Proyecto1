@@ -32,9 +32,9 @@ public class UIJugadorScript : MonoBehaviour {
 
     private void ActualizarTextoMunicion(JugadorScript jugador)
     {
-        PistolaScript pistola = jugador.GetPistolaScript();
-        int municionCargador = pistola.GetMunicionActualCargador();
-        int municionInventario = pistola.GetMunicionActualInventario();
+        ArmaScript arma = jugador.GetArmaScript();
+        int municionCargador = arma.GetMunicionActualCargador();
+        int municionInventario = arma.GetMunicionActualInventario();
 
         textoMunicion.text = municionCargador + " / " + municionInventario;
 

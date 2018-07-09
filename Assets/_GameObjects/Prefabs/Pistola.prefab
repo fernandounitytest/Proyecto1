@@ -660,12 +660,15 @@ MonoBehaviour:
   prefabProyectil: {fileID: 54114733326614160, guid: b63491832ab5d0043aa06b245dabfb9e,
     type: 2}
   puntoDisparo: {fileID: 0}
+  audioRecarga: {fileID: 0}
+  audioDisparo: {fileID: 0}
+  audioRecargaFallida: {fileID: 0}
   fuerzaDisparo: 50
   tiempoEntreDisparos: 1
   tiempoRecarga: 1.5
-  capacidadInventario: 32
-  balasInventario: 8
-  capacidadCargador: 8
+  municionMaximaInventario: 32
+  municionActualInventario: 8
+  municionMaximaCargador: 8
 --- !u!114 &114917276702394262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -679,9 +682,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabProyectil: {fileID: 0}
   puntoDisparo: {fileID: 0}
+  audioRecarga: {fileID: 0}
+  audioDisparo: {fileID: 0}
+  audioRecargaFallida: {fileID: 0}
   fuerzaDisparo: 50
   tiempoEntreDisparos: 1
   tiempoRecarga: 1.5
-  capacidadInventario: 32
-  balasInventario: 8
-  capacidadCargador: 8
+  municionMaximaInventario: 32
+  municionActualInventario: 8
+  municionMaximaCargador: 8

@@ -2,34 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolaScript : MonoBehaviour {
-
+public class ArmaScript : MonoBehaviour {
     #region Atributos
 
-    [SerializeField] Rigidbody prefabProyectil;
-    [SerializeField] Transform puntoDisparo;//El punto de origen del disparo
+    [SerializeField] protected Rigidbody prefabProyectil;
+    [SerializeField] protected Transform puntoDisparo;//El punto de origen del disparo
 
-    [SerializeField] AudioSource audioRecarga;
-    [SerializeField] AudioSource audioDisparo;
-    [SerializeField] AudioSource audioRecargaFallida;
+    [SerializeField] protected AudioSource audioRecarga;
+    [SerializeField] protected AudioSource audioDisparo;
+    [SerializeField] protected AudioSource audioRecargaFallida;
 
-    [SerializeField] float fuerzaDisparo = 20;
-    [SerializeField] float tiempoEntreDisparos = 1f;
-    [SerializeField] float tiempoRecarga = 1.5f;
-    
-    [SerializeField] int municionMaximaInventario = 32;
-    [SerializeField] int municionActualInventario = 8;
+    [SerializeField] protected float fuerzaDisparo = 20;
+    [SerializeField] protected float tiempoEntreDisparos = 1f;
+    [SerializeField] protected float tiempoRecarga = 1.5f;
 
-    [SerializeField] int municionMaximaCargador = 8;
-    private int municionActualCargador;
+    [SerializeField] protected int municionMaximaInventario = 32;
+    [SerializeField] protected int municionActualInventario = 8;
 
-    private bool estoyRecargando;
-    private bool gatilloApretado;
+    [SerializeField] protected int municionMaximaCargador = 8;
+    protected int municionActualCargador;
 
-    float tiempoUltimoDisparo;
+    protected bool estoyRecargando;
+    protected bool gatilloApretado;
+
+    protected float tiempoUltimoDisparo;
 
     #endregion Atributos
-    
+
     public int GetMunicionActualCargador()
     {
         return this.municionActualCargador;
@@ -39,37 +38,18 @@ public class PistolaScript : MonoBehaviour {
         return this.municionActualInventario;
     }
 
-    void Start () {
+
+    void Start()
+    {
         municionActualCargador = municionMaximaCargador;
         municionActualInventario = Mathf.Min(municionActualInventario, municionMaximaInventario);
-	}
-	
-    public void ApretarGatillo()
-    {
-        float tiempoActual = Time.time;
-        float tiempoDesdeUltimoDisparo = tiempoActual - tiempoUltimoDisparo;
-
-        bool puedoDisparar = true;
-        puedoDisparar &= tiempoDesdeUltimoDisparo > tiempoEntreDisparos;
-        puedoDisparar &= municionActualCargador > 0;
-        puedoDisparar &= !estoyRecargando;
-
-        if (puedoDisparar)
-        {
-            DispararProyectil();
-        } else if (municionActualCargador == 0)
-        {
-            audioRecargaFallida.Play();
-        }
     }
 
-    public void SoltarGatillo()
-    {
+    public virtual void ApretarGatillo() { }
 
-    }
+    public virtual void SoltarGatillo() { }
 
-    public void Recargar()
-    {
+    public virtual void Recargar() {
         Debug.Log("Recargando");
         bool cargadorATope = (municionActualCargador == municionMaximaCargador);
         bool tengoBalas = municionActualInventario > 0;
@@ -87,7 +67,7 @@ public class PistolaScript : MonoBehaviour {
         }
     }
 
-    private void FinalizarRecarga()
+    protected void FinalizarRecarga()
     {
         int municionARecargar = municionMaximaCargador - municionActualCargador;
         municionARecargar = Mathf.Min(municionARecargar, municionActualInventario);
@@ -97,7 +77,20 @@ public class PistolaScript : MonoBehaviour {
         estoyRecargando = false;
     }
 
-    private void DispararProyectil()
+    protected void DispararArma()
+    {
+        
+        if (municionActualCargador > 0 && !estoyRecargando)
+        {
+            LanzarProyectil();
+        }
+        else if (municionActualCargador == 0 && !estoyRecargando)
+        {
+            audioRecargaFallida.Play();
+        }
+    }
+
+    protected void LanzarProyectil()
     {
         audioDisparo.Play();
         municionActualCargador -= 1;
@@ -106,4 +99,6 @@ public class PistolaScript : MonoBehaviour {
         nuevoProyectil.rotation = puntoDisparo.transform.rotation;
         nuevoProyectil.AddRelativeForce(Vector3.forward * fuerzaDisparo, ForceMode.Impulse);
     }
+
+
 }
