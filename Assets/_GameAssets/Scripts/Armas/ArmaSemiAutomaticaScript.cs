@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PistolaScript : ArmaScript {
+public class ArmaSemiAutomaticaScript : ArmaProyectilesScript {
 
     public override void ApretarGatillo()
     {

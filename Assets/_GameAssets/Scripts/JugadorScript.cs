@@ -43,7 +43,25 @@ public class JugadorScript : MonoBehaviour {
 		
 	}
 	
-	void Update () {
+	void Update ()
+    {
+        ComprobarInputDisparo();
+        ComprobarInputCambioArma();
+    }
+
+    private void ComprobarInputCambioArma()
+    {
+        for (int teclaArma = 1; teclaArma <= armas.Length; teclaArma++)
+        {
+            if (Input.GetKeyDown(teclaArma.ToString()))
+            {
+                EquiparArma(teclaArma - 1);
+            }
+        }
+    }
+
+    private void ComprobarInputDisparo()
+    {
         if (Input.GetButtonDown("Fire1"))
         {
             armaEquipada.ApretarGatillo();
@@ -56,14 +74,7 @@ public class JugadorScript : MonoBehaviour {
         {
             armaEquipada.Recargar();
         }
-        for (int teclaArma = 1; teclaArma <= armas.Length; teclaArma++)
-        {
-            if(Input.GetKeyDown(teclaArma.ToString()))
-            {
-                EquiparArma(teclaArma - 1);
-            }
-        }
-	}
+    }
 
     public void RecibirDanyo(int danyoAAplicar)
     {
