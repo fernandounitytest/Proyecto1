@@ -30,7 +30,7 @@ public class ProyectilScript : MonoBehaviour {
         nuevasParticulasImpacto.transform.position = collision.transform.position;
         if (collision.collider.CompareTag("Enemigo"))
         {
-            EnemigoTontoScripts enemigo = collision.collider.GetComponent<EnemigoTontoScripts>();
+            Personaje enemigo = collision.collider.GetComponent<Personaje>();
             enemigo.RecibirDanyo(danyo);
         }
     }

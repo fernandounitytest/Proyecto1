@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 4424518772566612}
   - component: {fileID: 114180209767474818}
   - component: {fileID: 143546308769711678}
+  - component: {fileID: 114033395273252538}
+  - component: {fileID: 114025894283562484}
   m_Layer: 0
   m_Name: EnemigoTonto
   m_TagString: Enemigo
@@ -53,7 +55,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1292198834358710}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 183.29004, y: 10.605506, z: 215.20131}
+  m_LocalPosition: {x: 78.70061, y: 11.613604, z: 162.36043}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4458252219179024}
@@ -114,6 +116,36 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168931746561366}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114025894283562484
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292198834358710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ad24b3fd333605438b1789091e60392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanciaAtaque: 5
+  danyoAtaque: 5
+  prefabParticulasMuerte: {fileID: 1711592198012234, guid: 13a38665174cfad45b1676d0f6ca577d,
+    type: 2}
+  prefabParticulasExplosion: {fileID: 1157664654785674, guid: 3619937684a20e640876e31bec752fdc,
+    type: 2}
+--- !u!114 &114033395273252538
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1292198834358710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee69d60090b9b3b4dbfd0f73be86e085, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidadMovimiento: 5
+  tiempoCambioDireccion: 3
 --- !u!114 &114180209767474818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,12 +157,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dc1dea639f7e434791f594613b99258, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 5
+  vidaMaxima: 100
   prefabParticulasMuerte: {fileID: 1711592198012234, guid: 13a38665174cfad45b1676d0f6ca577d,
-    type: 2}
-  distanciaAtaque: 5
-  danyoAtaque: 5
-  prefabParticulasExplosion: {fileID: 1157664654785674, guid: 3619937684a20e640876e31bec752fdc,
     type: 2}
 --- !u!143 &143177605411503902
 CharacterController:

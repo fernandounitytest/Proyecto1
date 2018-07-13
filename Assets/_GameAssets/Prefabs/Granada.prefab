@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738832898651966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 152.595, y: 14.014, z: 149.346}
+  m_LocalPosition: {x: 83.85071, y: 8.873461, z: 153.46698}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4398710197987530}
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radioExplosion: 10
-  danyo: 0
+  danyo: 100
   detonacion: 0
   tiempoExplosion: 2
   prefabExplosion: {fileID: 1157664654785674, guid: 3619937684a20e640876e31bec752fdc,

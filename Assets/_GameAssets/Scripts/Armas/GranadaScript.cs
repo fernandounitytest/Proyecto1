@@ -8,7 +8,7 @@ public class GranadaScript : MonoBehaviour {
         PorColision
     }
     [SerializeField] float radioExplosion;
-    [SerializeField] int danyo;
+    [SerializeField] int danyo=100;
     [SerializeField] TipoDetonacion detonacion;
     [SerializeField] float tiempoExplosion;
     [SerializeField] GameObject prefabExplosion;
@@ -50,7 +50,7 @@ public class GranadaScript : MonoBehaviour {
         Collider[] collidersAfectados = Physics.OverlapSphere(this.transform.position, radioExplosion);
         for (int i = 0; i < collidersAfectados.Length; i++)
         {
-            EnemigoTontoScripts posibleEnemigo = collidersAfectados[i].GetComponent<EnemigoTontoScripts>();
+            Personaje posibleEnemigo = collidersAfectados[i].GetComponent<Personaje>();
             if (posibleEnemigo != null)
             {
                 posibleEnemigo.RecibirDanyo(danyo);

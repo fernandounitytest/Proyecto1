@@ -17,29 +17,29 @@ public class UIJugadorScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        JugadorScript jugador = GameManager.jugador;
+        Jugador jugador = GameManager.jugador;
         ActualizarBarraVida(jugador);
         ActualizarMunicion(jugador);
     }
 
-    private void ActualizarBarraVida(JugadorScript jugador)
+    private void ActualizarBarraVida(Jugador jugador)
     {
         float vidaActual = jugador.GetVidaActual();
         float vidaMaxima = jugador.GetVidaMaxima();
         float porcentaje = vidaActual / vidaMaxima;
 
-        barraVida.fillAmount = porcentaje;
+        //barraVida.fillAmount = porcentaje;
     }
 
-    private void ActualizarMunicion(JugadorScript jugador)
+    private void ActualizarMunicion(Jugador jugador)
     {
         ArmaScript arma = jugador.GetArmaScript();
         int municionCargador = arma.GetMunicionActualCargador();
         int municionInventario = arma.GetMunicionActualInventario();
 
-        textoMunicion.text = municionCargador + " / " + municionInventario;
+        //textoMunicion.text = municionCargador + " / " + municionInventario;
 
-        imagenArma.sprite = arma.GetIconoArma();
+        //imagenArma.sprite = arma.GetIconoArma();
 
     }
 }

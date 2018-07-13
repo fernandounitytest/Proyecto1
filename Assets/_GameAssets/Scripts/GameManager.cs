@@ -1,6 +1,3 @@
 ﻿public class GameManager {
-
-    public static JugadorScript jugador;
-	
-	
+    public static Jugador jugador;
 }

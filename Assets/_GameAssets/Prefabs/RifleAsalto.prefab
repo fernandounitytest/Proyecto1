@@ -1015,16 +1015,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2871d0a17d222644498a010ae3772f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabProyectil: {fileID: 54114733326614160, guid: b63491832ab5d0043aa06b245dabfb9e,
-    type: 2}
-  puntoDisparo: {fileID: 4068340166840124}
-  audioRecarga: {fileID: 82637863753409126}
-  audioDisparo: {fileID: 82964254272494860}
-  audioRecargaFallida: {fileID: 82481313536136054}
-  iconoArma: {fileID: 21300000, guid: 8a5a4b854094c394689f75694b5dea63, type: 3}
-  fuerzaDisparo: 50
-  tiempoEntreDisparos: 0.2
   tiempoRecarga: 1.5
   municionMaximaInventario: 100
   municionActualInventario: 100
   municionMaximaCargador: 10
+  audioRecarga: {fileID: 82637863753409126}
+  audioRecargaFallida: {fileID: 82481313536136054}
+  iconoArma: {fileID: 21300000, guid: 8a5a4b854094c394689f75694b5dea63, type: 3}
+  prefabProyectil: {fileID: 54114733326614160, guid: b63491832ab5d0043aa06b245dabfb9e,
+    type: 2}
+  puntoDisparo: {fileID: 4068340166840124}
+  fuerzaDisparo: 80
+  tiempoEntreDisparos: 0.2
+  audioDisparo: {fileID: 82964254272494860}

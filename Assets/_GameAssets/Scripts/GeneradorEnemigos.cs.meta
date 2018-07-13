@@ -5,7 +5,9 @@ licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - prefabEnemigo: {fileID: 1292198834358710, guid: 0f8a1be252fd9df4ea665aceb4beed65,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
