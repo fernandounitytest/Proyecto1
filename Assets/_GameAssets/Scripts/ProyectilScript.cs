@@ -5,7 +5,10 @@ using UnityEngine;
 public class ProyectilScript : MonoBehaviour {
     [SerializeField] float tiempoVida;
     [SerializeField] int danyo = 10;
+    [SerializeField] bool dañaAEnemigos = true;
+    [SerializeField] bool dañaAJugador = false;
     [SerializeField] GameObject prefabParticulasImpacto;
+
 
 
 	void Start () {
@@ -26,14 +29,27 @@ public class ProyectilScript : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        GameObject nuevasParticulasImpacto = Instantiate(prefabParticulasImpacto);
-        nuevasParticulasImpacto.transform.position = collision.transform.position;
-        if (collision.collider.CompareTag("Enemigo"))
+        GenerarParticulasImpacto(collision);
+        HacerDañoAPersonaje(collision);
+    }
+
+    private void HacerDañoAPersonaje(Collision collision)
+    {
+        if (
+                    (collision.collider.CompareTag("Enemigo") && dañaAEnemigos)
+                    ||
+                    (collision.collider.CompareTag("Jugador") && dañaAJugador)
+                    )
         {
             Personaje enemigo = collision.collider.GetComponent<Personaje>();
             enemigo.RecibirDanyo(danyo);
         }
     }
 
-    
+    private void GenerarParticulasImpacto(Collision collision)
+    {
+        GameObject nuevasParticulasImpacto = Instantiate(prefabParticulasImpacto);
+        nuevasParticulasImpacto.transform.position = collision.transform.position;
+    }
+
 }

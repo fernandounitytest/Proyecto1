@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114829625107157634}
   - component: {fileID: 135040923374112044}
   m_Layer: 0
-  m_Name: Bala
+  m_Name: BalaEnemigo
   m_TagString: proyectil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiempoVida: 10
   danyo: 10
+  "da\xF1aAEnemigos": 0
+  "da\xF1aAJugador": 1
   prefabParticulasImpacto: {fileID: 1932440227651856, guid: 21320d4ec8b970c428a395a121b6474a,
     type: 2}
 --- !u!135 &135040923374112044

@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114639647539961320}
   - component: {fileID: 135040923374112044}
   m_Layer: 0
-  m_Name: Granada
+  m_Name: GranadaEnemigo
   m_TagString: proyectil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - proyectil
   - Enemigo
+  - FxTemporaire
+  - Jugador
   layers:
   - Default
   - TransparentFX

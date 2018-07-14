@@ -64,11 +64,11 @@ public class ArmaRaycastScript : ArmaScript {
         if (Physics.Raycast(rayo, out infoImpacto))
         {
             Collider colliderImpactado = infoImpacto.collider;
-            Personaje enemigo = colliderImpactado.GetComponent<Personaje>();
-            if (enemigo != null)
+            Personaje personaje = colliderImpactado.GetComponent<Personaje>();
+            if (personaje != null && personaje.CompareTag("Enemigo"))
             {
                 //impacto
-                enemigo.RecibirDanyo(daño);
+                personaje.RecibirDanyo(daño);
             }
         }
 
