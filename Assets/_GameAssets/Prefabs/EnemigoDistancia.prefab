@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33339553771009458}
   - component: {fileID: 136674842175178028}
   - component: {fileID: 23800086702453034}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ModeloCanyon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 33803776982857770}
   - component: {fileID: 136603523557998308}
   - component: {fileID: 23553993859178444}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Modelo
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -146,6 +146,9 @@ MonoBehaviour:
   tiempoExplosion: 2
   prefabExplosion: {fileID: 1157664654785674, guid: 3619937684a20e640876e31bec752fdc,
     type: 2}
+  layersExplosion:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!135 &135040923374112044
 SphereCollider:
   m_ObjectHideFlags: 1

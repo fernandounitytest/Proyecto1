@@ -12,6 +12,7 @@ public class GranadaScript : MonoBehaviour {
     [SerializeField] TipoDetonacion detonacion;
     [SerializeField] float tiempoExplosion;
     [SerializeField] GameObject prefabExplosion;
+    [SerializeField] LayerMask layersExplosion;
     float temporizador;
 
 	// Use this for initialization
@@ -47,13 +48,18 @@ public class GranadaScript : MonoBehaviour {
 
     void DañarEnemigos()
     {
-        Collider[] collidersAfectados = Physics.OverlapSphere(this.transform.position, radioExplosion);
+        Collider[] collidersAfectados = Physics.OverlapSphere(
+            position: this.transform.position, 
+            radius: radioExplosion,
+            layerMask: layersExplosion
+            );
         for (int i = 0; i < collidersAfectados.Length; i++)
         {
-            Personaje posibleEnemigo = collidersAfectados[i].GetComponent<Personaje>();
-            if (posibleEnemigo != null)
+            Personaje posiblePersonaje = collidersAfectados[i].GetComponent<Personaje>();
+            if (posiblePersonaje != null)
             {
-                posibleEnemigo.RecibirDanyo(danyo);
+                Debug.Log("Granada haciendo daño a:" + posiblePersonaje.name);
+                posiblePersonaje.RecibirDanyo(danyo);
             }
         }
     }
