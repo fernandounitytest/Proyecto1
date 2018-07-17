@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemigoTonto : Personaje {
+public class EnemigoBase : Personaje {
 
     [SerializeField] GameObject prefabParticulasMuerte;
 

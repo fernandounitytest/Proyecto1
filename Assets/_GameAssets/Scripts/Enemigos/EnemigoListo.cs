@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemigoListo : EnemigoTonto {
+public class EnemigoListo : EnemigoBase {
 
     [SerializeField] float distanciaSeguimiento = 15;
     EnemigoMovimientoAleatorio miMovimientoAleatorio;

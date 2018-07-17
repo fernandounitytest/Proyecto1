@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemigoADistancia : MonoBehaviour {
+public class EnemigoADistancia : EnemigoBase {
     [SerializeField] float distanciaAtaque = 50;
     [SerializeField] float tiempoEntreDisparos = 2;
     [SerializeField] float fuerzaDisparo = 10;
