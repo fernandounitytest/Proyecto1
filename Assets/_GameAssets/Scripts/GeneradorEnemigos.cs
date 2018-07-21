@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GeneradorEnemigos : MonoBehaviour {
+    
     [SerializeField] GameObject prefabEnemigo;
-    [SerializeField] int numeroEnemigosAGenerar=10;
+    [SerializeField] int numeroEnemigosAGenerar=GameManager.NUM_MALOS_POR_FASE;
     [SerializeField] float tiempoEntreEnemigos=4;
     [SerializeField] float radioZonaGeneracion=10;
     [SerializeField] float alturaInvocacion = 1;
+    [SerializeField] GameManager.Estacion tipoEnemigo;
 
     int numeroEnemigosGenerado = 0;
 

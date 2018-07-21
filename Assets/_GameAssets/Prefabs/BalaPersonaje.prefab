@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tiempoVida: 10
-  danyo: 10
+  danyo: 30
   "da\xF1aAEnemigos": 1
   "da\xF1aAJugador": 0
   prefabParticulasImpacto: {fileID: 1932440227651856, guid: 21320d4ec8b970c428a395a121b6474a,
