@@ -7,6 +7,8 @@ using UnityEngine;
 public class Jugador : Personaje {
     private ArmaScript[] armas;
     private ArmaScript armaEquipada;
+    private bool linternaActivada = false;
+    [SerializeField] GameObject linterna;
 
     public ArmaScript GetArmaScript()
     {
@@ -27,6 +29,7 @@ public class Jugador : Personaje {
     {
         ComprobarInputDisparo();
         ComprobarInputCambioArma();
+        ComprobarInputLinterna();
     }
 
     private void ComprobarInputCambioArma()
@@ -65,6 +68,15 @@ public class Jugador : Personaje {
         }
         armaEquipada = armas[id];
         armaEquipada.gameObject.SetActive(true);
+    }
+
+    private void ComprobarInputLinterna()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            linternaActivada = !linternaActivada;
+            linterna.SetActive(linternaActivada);
+        }
     }
 
     protected override void Morir()

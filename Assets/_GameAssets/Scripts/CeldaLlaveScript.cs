@@ -18,5 +18,9 @@ public class CeldaLlaveScript : MonoBehaviour {
         {
             celdaLlave.transform.Translate(Vector3.down * Time.deltaTime);
         }
+        if (estacion == Estacion.Winter && GameManager.NUM_MALOS_MUERTOS_WINTER == GameManager.NUM_MALOS_POR_FASE && celdaLlave.transform.position.y > MINIMO_CELDA)
+        {
+            celdaLlave.transform.Translate(Vector3.down * Time.deltaTime);
+        }
     }
 }
