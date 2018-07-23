@@ -6,7 +6,7 @@ using UnityEngine;
 public class GeneradorEnemigos : MonoBehaviour {
     
     [SerializeField] GameObject prefabEnemigo;
-    [SerializeField] int numeroEnemigosAGenerar=GameManager.NUM_MALOS_POR_FASE;
+    private int numeroEnemigosAGenerar;
     [SerializeField] float tiempoEntreEnemigos=4;
     [SerializeField] float radioZonaGeneracion=10;
     [SerializeField] float alturaInvocacion = 1;
@@ -16,6 +16,7 @@ public class GeneradorEnemigos : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        numeroEnemigosAGenerar = GameManager.NUM_MALOS_POR_FASE;
         InvokeRepeating("GenerarEnemigo", 0, tiempoEntreEnemigos);
 	}
 	

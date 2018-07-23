@@ -2,7 +2,7 @@
     public enum Estacion { Spring, Summer, Autum, Winter};
     public static Jugador jugador;
     public static Estacion estacionJugador = Estacion.Summer;
-    public static int NUM_MALOS_POR_FASE=2;
+    public static int NUM_MALOS_POR_FASE=3;
     public static int NUM_MALOS_MUERTOS_SUMMER = 0;
     public static int NUM_MALOS_MUERTOS_AUTUM = 0;
     public static int NUM_MALOS_MUERTOS_WINTER = 0;
