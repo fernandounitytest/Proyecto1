@@ -17,6 +17,12 @@ public class Personaje : MonoBehaviour {
         this.vidaActual = vida;
     }
 
+    public void RecuperarVida(int vida)
+    {
+        this.vidaActual += vida;
+        this.vidaActual = Mathf.Min(vidaMaxima, vidaActual);
+    }
+
     public int GetVidaMaxima()
     {
         return vidaMaxima;
@@ -25,7 +31,6 @@ public class Personaje : MonoBehaviour {
     public void RecibirDanyo(int danyoAAplicar)
     {
         SetVidaActual(Mathf.Max(0, GetVidaActual() - danyoAAplicar));
-        Debug.Log(GetVidaActual());
         if (GetVidaActual() == 0)
         {
             ComprobarMuerte();

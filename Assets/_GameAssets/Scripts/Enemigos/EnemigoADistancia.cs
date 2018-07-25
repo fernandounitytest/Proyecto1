@@ -15,11 +15,14 @@ public class EnemigoADistancia : EnemigoBase {
 
     Quaternion rotacionInicialCanyon;
     float tiempoUltimoDisparo;
-    
 
-	void Start () {
+
+
+    private void Awake()
+    {
         rotacionInicialCanyon = canyon.rotation;
-	}
+    }
+    
 	
 	void Update () {
         Vector3 miPosicion = this.transform.position;

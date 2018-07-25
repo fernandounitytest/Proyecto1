@@ -27,8 +27,7 @@ public class UIJugadorScript : MonoBehaviour {
         float vidaActual = jugador.GetVidaActual();
         float vidaMaxima = jugador.GetVidaMaxima();
         float porcentaje = vidaActual / vidaMaxima;
-
-        //barraVida.fillAmount = porcentaje;
+        barraVida.fillAmount = porcentaje;
     }
 
     private void ActualizarMunicion(Jugador jugador)

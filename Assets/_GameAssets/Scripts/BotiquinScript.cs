@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BotiquinScript : MonoBehaviour {
+    private GameObject jugador;
     [SerializeField] GameObject prefabParticulas;
     [SerializeField] GameObject puntoGeneracion;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    private void Awake()
+    {
+        jugador = GameObject.Find("Jugador");
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.name == "Jugador")
         {
+            jugador.GetComponent<Personaje>().RecuperarVida(10);
             prefabParticulas.transform.position = puntoGeneracion.transform.position; 
             Instantiate(prefabParticulas);
             Destroy(this.gameObject);

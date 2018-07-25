@@ -38,9 +38,10 @@ public class ProyectilScript : MonoBehaviour {
         Personaje personaje = collision.collider.GetComponentInParent<Personaje>();
         if (personaje != null)
         {
-            if ((personaje.CompareTag("Enemigo") && dañaAEnemigos)||(personaje.CompareTag("Jugador") && dañaAJugador))
+            if ((personaje.CompareTag("Enemigo") && dañaAEnemigos) || (personaje.CompareTag("Jugador") && dañaAJugador))
             {
                 personaje.RecibirDanyo(danyo);
+                Destroy(this.gameObject);
             }
         }
     }
