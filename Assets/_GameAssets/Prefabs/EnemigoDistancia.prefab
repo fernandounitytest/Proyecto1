@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4424434382065674}
   - component: {fileID: 54628828947269938}
   - component: {fileID: 114583236848492538}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemigoDistancia
   m_TagString: Enemigo
   m_Icon: {fileID: 0}

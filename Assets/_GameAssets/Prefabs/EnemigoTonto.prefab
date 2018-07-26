@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 143546308769711678}
   - component: {fileID: 114033395273252538}
   - component: {fileID: 114025894283562484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemigoTonto
   m_TagString: Enemigo
   m_Icon: {fileID: 0}

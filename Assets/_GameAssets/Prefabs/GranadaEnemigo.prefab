@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radioExplosion: 10
-  danyo: 100
+  danyo: 50
   detonacion: 0
   tiempoExplosion: 2
   prefabExplosion: {fileID: 1157664654785674, guid: 3619937684a20e640876e31bec752fdc,
