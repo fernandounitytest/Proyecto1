@@ -7,6 +7,7 @@ public class ArmaRaycastScript : ArmaScript {
     [SerializeField] protected AudioSource audioDisparo;
     [SerializeField] int daño = 100;
     [SerializeField] float zoomFOV = 15;
+    [SerializeField] GameObject canvasFrancotirador;
     float initialFOV;
     protected float tiempoUltimoDisparo;
     private Camera camara;
@@ -28,7 +29,7 @@ public class ArmaRaycastScript : ArmaScript {
         if (Input.GetMouseButtonDown(1))
         {
             ActivarZoom();
-        } 
+        }
         if (Input.GetMouseButtonUp(1))
         {
             DesactivarZoom();
@@ -77,11 +78,13 @@ public class ArmaRaycastScript : ArmaScript {
 
     void ActivarZoom()
     {
+        canvasFrancotirador.SetActive(true);
         camara.fieldOfView = 15;
     }
 
     void DesactivarZoom()
     {
+        canvasFrancotirador.SetActive(false);
         camara.fieldOfView = this.initialFOV;
     }
     
