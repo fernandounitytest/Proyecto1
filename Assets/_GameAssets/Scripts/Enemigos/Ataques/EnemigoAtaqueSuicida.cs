@@ -43,19 +43,19 @@ public class EnemigoAtaqueSuicida : MonoBehaviour {
     {
         Debug.Log("¡AY!");
         //CONTROL DE ENEMIGOS
-        if (GameManager.NUM_MALOS_MUERTOS_SUMMER < GameManager.NUM_MALOS_POR_FASE)
+        if (GameManager.NUM_MALOS_MUERTOS_SUMMER < GameManager.NUM_MALOS_POR_FASE+GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
             GameManager.NUM_MALOS_MUERTOS_SUMMER++;
         }
-        else if (GameManager.NUM_MALOS_MUERTOS_AUTUM < GameManager.NUM_MALOS_POR_FASE)
+        else if (GameManager.NUM_MALOS_MUERTOS_AUTUM < GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
             GameManager.NUM_MALOS_MUERTOS_AUTUM++;
         }
-        else if (GameManager.NUM_MALOS_MUERTOS_WINTER < GameManager.NUM_MALOS_POR_FASE)
+        else if (GameManager.NUM_MALOS_MUERTOS_WINTER < GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
             GameManager.NUM_MALOS_MUERTOS_WINTER++;
         }
-        else if (GameManager.NUM_MALOS_MUERTOS_SPRING < GameManager.NUM_MALOS_POR_FASE)
+        else if (GameManager.NUM_MALOS_MUERTOS_SPRING < GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
             GameManager.NUM_MALOS_MUERTOS_SPRING++;
         }

@@ -36,7 +36,7 @@ public class UIJugadorScript : MonoBehaviour {
         int municionCargador = arma.GetMunicionActualCargador();
         int municionInventario = arma.GetMunicionActualInventario();
 
-        //textoMunicion.text = municionCargador + " / " + municionInventario;
+        textoMunicion.text = municionCargador + " / " + municionInventario;
 
         //imagenArma.sprite = arma.GetIconoArma();
 

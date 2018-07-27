@@ -29,7 +29,6 @@ public class ArmaProyectilesScript : ArmaScript {
     {
         tiempoUltimoDisparo = Time.time;
         audioDisparo.PlayOneShot(audioDisparo.clip);
-        //audioDisparo.Play();
         municionActualCargador -= 1;
         Rigidbody nuevoProyectil = Instantiate(prefabProyectil);
         nuevoProyectil.position = puntoDisparo.position;
