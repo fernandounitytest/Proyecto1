@@ -53,14 +53,11 @@ public class GranadaScript : MonoBehaviour {
             radius: radioExplosion,
             layerMask: layersExplosion
             );
-        Debug.Log("ENEMIGOS AFECTADOS:" + collidersAfectados.Length);
         for (int i = 0; i < collidersAfectados.Length; i++)
         {
             Personaje posiblePersonaje = collidersAfectados[i].GetComponent<Personaje>();
-            Debug.Log("Enemigo afectado:" + collidersAfectados[i].name);
             if (posiblePersonaje != null)
             {
-                Debug.Log("Granada haciendo daño a:" + posiblePersonaje.name);
                 posiblePersonaje.RecibirDanyo(danyo);
             }
         }

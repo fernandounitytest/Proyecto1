@@ -9,6 +9,10 @@ public class EnemigoAtaqueSuicida : MonoBehaviour {
     [Header("Muerte")]
     [SerializeField] GameObject prefabParticulasMuerte;
     [SerializeField] GameObject prefabParticulasExplosion;
+    [SerializeField] GameObject prefabEnemigoBoss;
+    [SerializeField] Transform posicionGeneracionEnemigoBoss;
+    //[Header("Si es un BOSS resucita")]
+    //[SerializeField] bool isABoss = false;
 
     private void Update()
     {
@@ -36,12 +40,18 @@ public class EnemigoAtaqueSuicida : MonoBehaviour {
             prefabParticulasExplosion,
             position: this.transform.position,
             rotation: Quaternion.identity);
+        //Si es un jefe, resucita al explotar.
+        if (this.GetComponent<EnemigoBase>().isABoss && GameManager.estadoJuego == GameManager.Estado.Jugando)
+        {
+            GameObject newEnemy = Instantiate(prefabEnemigoBoss);
+            newEnemy.transform.position = posicionGeneracionEnemigoBoss.position;
+            newEnemy.transform.rotation = Quaternion.Euler(0, 0, 0);
+        }
         Destroy(this.gameObject);
     }
 
     private void ContarEnemigosMuertos()
     {
-        Debug.Log("¡AY!");
         //CONTROL DE ENEMIGOS
         if (GameManager.NUM_MALOS_MUERTOS_SUMMER < GameManager.NUM_MALOS_POR_FASE+GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {

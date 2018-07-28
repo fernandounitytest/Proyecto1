@@ -5,21 +5,24 @@ using UnityEngine;
 public class EnemigoBase : Personaje {
 
     [SerializeField] GameObject prefabParticulasMuerte;
+    [SerializeField] public bool isABoss = false;
 
     protected override void Morir()
     {
-        Debug.Log("¡AY!");
         ContarEnemigosMuertos();
 
         GameObject nuevasParticulasMuerte = Instantiate(prefabParticulasMuerte);
         nuevasParticulasMuerte.transform.position = this.transform.position;
         nuevasParticulasMuerte.transform.up += Vector3.up * 3;
         Destroy(this.gameObject);
+        if (isABoss)
+        {
+            Debug.Log("HAS GANADO, GAME OVER");
+        }
     }
 
     private static void ContarEnemigosMuertos()
     {
-        Debug.Log("¡AY!");
         //CONTROL DE ENEMIGOS
         if (GameManager.NUM_MALOS_MUERTOS_SUMMER < GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
