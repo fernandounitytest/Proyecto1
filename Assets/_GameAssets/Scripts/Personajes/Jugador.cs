@@ -87,7 +87,6 @@ public class Jugador : Personaje {
         GameManager.MostrarMenuDerrota();
         GetComponent<CharacterController>().enabled = false;
         GetComponent<FirstPersonController>().enabled = false;
-        Debug.Log("Acabas de morir");
     }
 
     public override void RecibirDanyo(int danyoAAplicar)
