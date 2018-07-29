@@ -42,6 +42,7 @@ public class ArmaRaycastScript : ArmaScript {
         {
             if (municionActualCargador > 0)
             {
+                municionActualCargador -= 1;
                 tiempoUltimoDisparo = Time.time;
                 audioDisparo.Play();
                 LanzarRaycast();

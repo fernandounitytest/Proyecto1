@@ -11,10 +11,8 @@ public class LlaveEstacionScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Cambiando de estación");
         if (GameManager.NUM_MALOS_MUERTOS_WINTER == GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
-            Debug.Log("---FIN INVIERNO---");
             jugador.transform.position = origenSpring.transform.position;
             //Cambiar la iluminación
             Light ambientLight = GameObject.Find("Sol").GetComponent<Light>();
@@ -23,7 +21,6 @@ public class LlaveEstacionScript : MonoBehaviour {
             Destroy(this.gameObject);
         } else if (GameManager.NUM_MALOS_MUERTOS_AUTUM == GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
-            Debug.Log("---FIN AUTUM---");
             jugador.transform.position = origenWinter.transform.position;
             //Parar la lluvia
             GameObject lluvia = GameObject.Find("Lluvia(Clone)");
@@ -35,7 +32,6 @@ public class LlaveEstacionScript : MonoBehaviour {
             Destroy(this.gameObject);
         } else if (GameManager.NUM_MALOS_MUERTOS_SUMMER == GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
-            Debug.Log("---FIN VERANO---");
             jugador.transform.position = origenAutum.transform.position;
             RenderSettings.ambientLight = new Color(0, 0, 0);
             GameObject lluvia = Instantiate(lluviaPrefab);

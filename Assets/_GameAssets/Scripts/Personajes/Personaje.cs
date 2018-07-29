@@ -28,7 +28,7 @@ public class Personaje : MonoBehaviour {
         return vidaMaxima;
     }
 
-    public void RecibirDanyo(int danyoAAplicar)
+    public virtual void RecibirDanyo(int danyoAAplicar)
     {
         SetVidaActual(Mathf.Max(0, GetVidaActual() - danyoAAplicar));
         if (GetVidaActual() == 0)

@@ -23,6 +23,11 @@ public class ArmaScript : MonoBehaviour {
 
     #endregion Atributos
 
+    public void RecargarInventario()
+    {
+        municionActualInventario = Mathf.Min(municionActualInventario+municionMaximaCargador, municionMaximaInventario);
+    }
+
 
     public Sprite GetIconoArma()
     {
@@ -51,7 +56,6 @@ public class ArmaScript : MonoBehaviour {
     public virtual void SoltarGatillo() { }
 
     public virtual void Recargar() {
-        Debug.Log("Recargando");
         bool cargadorATope = (municionActualCargador == municionMaximaCargador);
         bool tengoBalas = municionActualInventario > 0;
 
@@ -63,7 +67,6 @@ public class ArmaScript : MonoBehaviour {
         }
         else if (!tengoBalas)
         {
-            Debug.Log("NO BALAS");
             audioRecargaFallida.Play();
         }
     }
@@ -74,7 +77,6 @@ public class ArmaScript : MonoBehaviour {
         municionARecargar = Mathf.Min(municionARecargar, municionActualInventario);
         municionActualInventario -= municionARecargar;
         municionActualCargador += municionARecargar;
-        Debug.Log("MunicionActualCargador:" + municionActualCargador);
         estoyRecargando = false;
     }
 

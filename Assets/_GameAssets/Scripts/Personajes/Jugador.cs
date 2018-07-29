@@ -9,6 +9,7 @@ public class Jugador : Personaje {
     private ArmaScript armaEquipada;
     private bool linternaActivada = false;
     [SerializeField] GameObject linterna;
+    [SerializeField] AudioSource audioDolor;
 
     public ArmaScript GetArmaScript()
     {
@@ -88,4 +89,11 @@ public class Jugador : Personaje {
         GetComponent<FirstPersonController>().enabled = false;
         Debug.Log("Acabas de morir");
     }
+
+    public override void RecibirDanyo(int danyoAAplicar)
+    {
+        base.RecibirDanyo(danyoAAplicar);
+        audioDolor.PlayOneShot(audioDolor.clip);
+    }
+
 }
