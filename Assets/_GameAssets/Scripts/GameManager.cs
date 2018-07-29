@@ -1,4 +1,5 @@
 ﻿using UnityEngine.SceneManagement;
+using UnityEngine;
 public class GameManager {
     public enum Estacion { Spring, Summer, Autum, Winter};
     public enum Estado { Jugando, GameOver};
@@ -15,11 +16,17 @@ public class GameManager {
 
     public static void MostrarMenuVictoria()
     {
-        SceneManager.LoadScene("MenuVictoria", LoadSceneMode.Additive);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        SceneManager.LoadScene("WinScene", LoadSceneMode.Additive);
     }
 
     public static void MostrarMenuDerrota()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         SceneManager.LoadScene("MenuGameOver", LoadSceneMode.Additive);
     }
 

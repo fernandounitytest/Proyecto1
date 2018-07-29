@@ -84,7 +84,6 @@ public class Jugador : Personaje {
         GameManager.estadoJuego = GameManager.Estado.GameOver;
         base.Morir();
         GameManager.MostrarMenuDerrota();
-        this.enabled = false;
         GetComponent<CharacterController>().enabled = false;
         GetComponent<FirstPersonController>().enabled = false;
         Debug.Log("Acabas de morir");

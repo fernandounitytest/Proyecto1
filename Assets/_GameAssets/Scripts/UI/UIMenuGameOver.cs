@@ -7,16 +7,17 @@ public class UIMenuGameOver : MonoBehaviour {
 
 	public void ReiniciarPartida()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
         Scene escenaActual = SceneManager.GetActiveScene();
+        GameManager.estadoJuego = GameManager.Estado.Jugando;
+        GameManager.estacionJugador = GameManager.Estacion.Summer;
         SceneManager.LoadScene(escenaActual.name,LoadSceneMode.Single);
         
     }
     public void SalirAlMenuPrincipal()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        GameManager.estadoJuego = GameManager.Estado.Jugando;
+        GameManager.estacionJugador = GameManager.Estacion.Summer;
+        GameManager.estadoJuego = GameManager.Estado.Jugando;
         SceneManager.LoadScene("MenuPrincipal",LoadSceneMode.Single);
     }
 }

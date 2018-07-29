@@ -11,12 +11,8 @@ public class LlaveEstacionScript : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Ábrete, Sésamo");
-        if (GameManager.NUM_MALOS_MUERTOS_SPRING == GameManager.NUM_MALOS_POR_FASE+GameManager.NUM_MALOS_A_DIST_POR_FASE)
-        {
-            Debug.Log("---FIN PRIMAVERA--- ACTIVAR EL BOSSS");
-            //ACTIVAR EL BOSS
-        } else if (GameManager.NUM_MALOS_MUERTOS_WINTER == GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
+        Debug.Log("Cambiando de estación");
+        if (GameManager.NUM_MALOS_MUERTOS_WINTER == GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE)
         {
             Debug.Log("---FIN INVIERNO---");
             jugador.transform.position = origenSpring.transform.position;
@@ -42,8 +38,6 @@ public class LlaveEstacionScript : MonoBehaviour {
             Debug.Log("---FIN VERANO---");
             jugador.transform.position = origenAutum.transform.position;
             RenderSettings.ambientLight = new Color(0, 0, 0);
-
-
             GameObject lluvia = Instantiate(lluviaPrefab);
             Destroy(this.gameObject);
         } 

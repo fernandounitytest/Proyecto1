@@ -28,7 +28,7 @@ public class CeldaLlaveScript : MonoBehaviour {
         {
             celdaLlave.transform.Translate(Vector3.down * Time.deltaTime);
         }
-        else if (true || estacion == Estacion.Spring &&
+        else if (estacion == Estacion.Spring &&
             (GameManager.NUM_MALOS_MUERTOS_SPRING == (GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE) && 
             celdaLlave.transform.position.y > MINIMO_CELDA))
         {

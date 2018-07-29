@@ -17,7 +17,8 @@ public class EnemigoBase : Personaje {
         Destroy(this.gameObject);
         if (isABoss)
         {
-            Debug.Log("HAS GANADO, GAME OVER");
+            Destroy(GameManager.jugador);
+            GameManager.MostrarMenuVictoria();
         }
     }
 

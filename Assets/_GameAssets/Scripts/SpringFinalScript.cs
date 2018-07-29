@@ -10,7 +10,7 @@ public class SpringFinalScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (true || estacion == Estacion.Spring &&
+        if (estacion == Estacion.Spring &&
             (GameManager.NUM_MALOS_MUERTOS_SPRING == (GameManager.NUM_MALOS_POR_FASE + GameManager.NUM_MALOS_A_DIST_POR_FASE) && 
             malezaMovil.transform.position.y > MINIMO_MALEZA))
         {
